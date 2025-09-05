@@ -15,10 +15,11 @@ EXPLAIN SELECT *
 FROM Properties 
 WHERE location = 'Addis Ababa';
 
-EXPLAIN SELECT *
-FROM Bookings
-WHERE property_id = 10 AND start_date >= '2023-01-01' AND end_date <= '2023-12-31';
+EXPLAIN ANALYZE SELECT * 
+FROM Bookings 
+WHERE property_id = 10 AND start_date >= '2025-09-01';
 
 EXPLAIN SELECT *
 FROM Properties
 WHERE host_id = 3;
+
