@@ -6,6 +6,8 @@ FROM Bookings b
 JOIN Users u ON u.user_id = b.user_id
 JOIN Properties p ON p.property_id = b.property_id
 LEFT JOIN Payments pay ON pay.booking_id = b.booking_id
+WHERE b.status = 'confirmed'
+  AND pay.amount > 0;
 
 -- let's analyze the query’s performance using EXPLAIN
 EXPLAIN SELECT u.user_id, u.first_name, u.last_name, u.email,
@@ -30,4 +32,7 @@ FROM Bookings b
 JOIN Users u ON u.user_id = b.user_id
 JOIN Properties p ON p.property_id = b.property_id
 LEFT JOIN Payments pay USE INDEX (idx_payment_booking) 
-       ON pay.booking_id = b.booking_id;
+       ON pay.booking_id = b.booking_id
+WHERE b.status = 'confirmed'
+  AND pay.amount > 0;
+
