@@ -22,5 +22,5 @@ BNL (Block Nested Loop) join on Payments makes it worse for large data.
 ## Optimization
 * Refactor the query for better performance. (you can get the refactored query on [performance.sql](performance.sql) )
 * Add proper indexes like Payments lookup by booking_id
-* 
+
 
